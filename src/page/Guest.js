@@ -2,6 +2,7 @@ import io from 'socket.io-client'
 import React from 'react'
 import Rating from 'react-rating'
 import { Helmet } from 'react-helmet'
+import { withRouter, Link } from 'react-router-dom'
 import Fingerprint2 from 'fingerprintjs2'
 import LoadingScreen from 'react-loading-screen'
 import { IoIosStarOutline, IoIosStar } from 'react-icons/io'
@@ -274,6 +275,7 @@ class Guest extends React.Component {
             <link rel="apple-touch-icon" href={custom.favicon} />
             <link rel="icon" href={custom.favicon} />
           </Helmet>
+          <Link to='/agent'><a className="btn btn-xs btn-primary text-white m-4">Agent</a></Link>
           <img className="custom-logo" src={custom.logo || '/logo.png'} alt="" />
           {
             this.state.waiting &&
@@ -363,5 +365,5 @@ class Guest extends React.Component {
   }
 }
 
-export default Guest
+export default withRouter(Guest)
 
